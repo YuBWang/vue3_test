@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { reactive, ref,watch } from 'vue';
+import { reactive, ref,watch, watchEffect } from 'vue';
 export default {
   name: 'App',
   // vue2写法
@@ -75,6 +75,12 @@ export default {
     watch([()=>person.school],(newValue,oldValue) =>{
       console.log("person的school值变化了",newValue,oldValue);
     },{deep:true})
+
+    watchEffect(()=>{
+      const a = sum.value;
+      const b = person.age;
+      console.log("watcheffect 检测到了值的改变",a,b);
+    })
 
     //返回一个对象
     return {
