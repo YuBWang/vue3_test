@@ -1,12 +1,12 @@
 <template>
 
 <br>
-<h3>姓名：{{person.name}}</h3>
-<h3>年龄：{{person.age}}</h3>
-<h3>班级：{{person.school.cl}}</h3>
-<button @click="person.age++">点我修改年龄</button>
-<button @click="person.name=person.name+'~'">点我修改名称</button>
-<button @click="person.school.cl=person.school.cl+'班'">点我修改班级</button>
+<h3>姓名：{{name}}</h3>
+<h3>年龄：{{age}}</h3>
+<h3>班级：{{cl}}</h3>
+<button @click="age++">点我修改年龄</button>
+<button @click="name=name+'~'">点我修改名称</button>
+<button @click="cl=cl+'班'">点我修改班级</button>
 </template>
 
 <script>
