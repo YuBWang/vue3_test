@@ -3,14 +3,14 @@
 <br>
 <h3>姓名：{{name}}</h3>
 <h3>年龄：{{age}}</h3>
-<h3>班级：{{cl}}</h3>
+<h3>班级：{{school.cl}}</h3>
 <button @click="age++">点我修改年龄</button>
 <button @click="name=name+'~'">点我修改名称</button>
 <button @click="cl=cl+'班'">点我修改班级</button>
 </template>
 
 <script>
-import { reactive ,toRef} from 'vue';
+import { reactive , toRefs} from 'vue';
 export default {
   name: 'PersonUse',
   setup(){
@@ -21,12 +21,16 @@ export default {
         cl:"五班"
       }
     })
+    const x = toRefs(person)
+    console.log(x)
 
     //返回一个对象
     return {
-      name:toRef(person,'name'),
-      age:toRef(person,'age'),
-      cl:toRef(person.school,'cl')
+      //name:toRef(person,'name'),
+      //age:toRef(person,'age'),
+      //cl:toRef(person.school,'cl')
+      person,
+      ...toRefs(person)
     }
   }
 }
